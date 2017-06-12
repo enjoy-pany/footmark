@@ -2,16 +2,22 @@
 <div>
   <ul class="bottom-nav">
     <li>
-      <i class="iconfont icon-jiaoyin1"></i>
-      <span>印记</span>
+      <router-link :to="{path: '/trace'}">
+        <i class="iconfont icon-jiaoyin1"></i>
+        <span>印记</span>
+      </router-link>
     </li>
     <li>
-      <i class="iconfont icon-qrcode"></i>
-      <span>风景</span>
+      <router-link :to="{path: '/scape'}">
+        <i class="iconfont icon-qrcode"></i>
+        <span>风景</span>
+      </router-link>
     </li>
     <li>
-      <i class="iconfont icon-account"></i>
-      <span>我的</span>
+      <router-link :to="{path: '/my'}">
+        <i class="iconfont icon-account"></i>
+        <span>我的</span>
+      </router-link>
     </li>
   </ul>
 </div>
@@ -45,18 +51,18 @@ export default {
   bottom: 0;
   left: 0;
 }
-.bottom-nav>li{
+.bottom-nav>li>a{
   display: flex;
   align-content: center;
   flex-direction: column;
 }
-.bottom-nav>li>i{
+.bottom-nav>li i{
   text-align: center;
   font-size: .36rem;
   color: #929292;
   margin: .2rem 0 .1rem 0;;
 }
-.bottom-nav>li>span{
+.bottom-nav>li span{
   font-size: .20rem;
   color: #929292;
 }
