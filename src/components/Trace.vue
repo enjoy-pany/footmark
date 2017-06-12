@@ -1,11 +1,16 @@
 <template>
 <div>
-  <mu-appbar title="">
-    <mu-icon-button icon="menu" slot="left"/>
-    <mu-flat-button label="expand_more" slot="right"/>
-    <mu-flat-button href="333" label="expand_more" slot="right"/>
-    <mu-flat-button label="全部" icon="expand_more" slot="right"/>
-  </mu-appbar>
+  <div class="head-nav">
+    <div class="navLeft">
+      <i class="iconfont icon-category"></i>
+    </div>
+    <div class="navCenter">
+      <i class="iconfont icon-calendar"></i>
+    </div>
+    <div class="navRight">
+      <i class="iconfont icon-edit"></i>
+    </div>
+  </div>
   <div class="mainCon">
     <div class="cus-cardList" v-for="item in list">
       <div class="cusDateBar" v-bind:class="{barHeader:item.isHeader}">
@@ -18,7 +23,7 @@
           <div class="card-text-content">{{item.content}}</div>
         </div>
         <div class="card-action">
-          <mu-icon value='location_on' :size='18'></mu-icon>
+          <i class='iconfont icon-map'></i>
           <div class="postion">{{item.position}}</div>
         </div>
       </div>
@@ -55,42 +60,58 @@ export default {
 </script>
 
 <style scoped>
-.mu-appbar{
+.head-nav{
+  width: 100%;
+  height: 0.88rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  background: #2e9e64;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9;
 }
-
+.head-nav>div{
+  height: 100%;
+  line-height: .6rem;
+  padding: 0 .3rem;
+}
+.head-nav i{
+  font-size: .36rem;
+  color: #fff;
+}
 .mainCon{
   width: 100%;
   height: 100%;
-  margin-top: 64px;
-  margin-bottom: 60px;
-  padding: 10px;
-}
-.cus-cardList{
-  position: relative;
+  margin-top: 0.88rem;
+  margin-bottom: 1rem;
+  padding: 0 .1rem;
+  box-sizing: border-box;
 }
 .cusDateBar{
   width: 100%;
-  height: 20px;
+  height: .2rem;
+  position: relative;
 }
 .barHeader{
-  height: 50px;
+  height: .5rem;
 }
 .date-icon{
   display: inline-block;
-  width: 5px;
+  width: .05rem;
   height: 100%;
   background: #eee;
-  position: relative;
+  position: absolute;
   left: 2%;
   top: 0;
 }
 .date-icon em{
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: .1rem;
+  height: .1rem;
   border-radius: 5px;
   background: #009688;
   position: absolute;
@@ -99,16 +120,16 @@ export default {
 }
 .date-num{
   display: inline-block;
-  font-size: 26px;
+  font-size: .26rem;
   font-weight: 600;
-  line-height: 60px;
+  line-height: .6rem;
   position: absolute;
   left: 5%;
   top: 0;
 }
 .cus-card{
   width: 100%;
-  height: 400px;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,7 +139,7 @@ export default {
 }
 .card-text{
   width: 100%;
-  height: 400px;
+  height: 3rem;
   display: flex;
  /* justify-content: center;*/
   align-items: center;
@@ -127,15 +148,15 @@ export default {
   color: #fff;
 }
 .card-text-title{
-  font-size: 34px;
+  font-size: .3rem;
   margin-top: 5%;
 }
 .card-text-content{
   width: 50%;
   height: 40%;
   display: inline-block;
-  font-size: 20px;
-  margin-top: 50px;
+  font-size: .18rem;
+  margin-top: .5rem;
   overflow: hidden;
 }
 .card-cover img{
@@ -147,7 +168,7 @@ export default {
   color: #fff;
   bottom: 5%;
   right: 5%;
-  font-size: 14px;
+  font-size: .14rem;
 }
 .card-action .postion{
   height: 100%;

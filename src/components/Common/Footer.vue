@@ -1,11 +1,20 @@
 <template>
-<mu-paper>
-  <mu-bottom-nav :value="bottomNav" @change="handleChange">
-    <mu-bottom-nav-item to="trace" value="trace" title="Trace" icon="restore"/>
-    <mu-bottom-nav-item to="scape" value="scape" title="Scape" icon="favorite"/>
-    <mu-bottom-nav-item to="my" value="mine" title="Mine" icon="location_on"/>
-  </mu-bottom-nav>
-</mu-paper>
+<div>
+  <ul class="bottom-nav">
+    <li>
+      <i class="iconfont icon-jiaoyin1"></i>
+      <span>印记</span>
+    </li>
+    <li>
+      <i class="iconfont icon-qrcode"></i>
+      <span>风景</span>
+    </li>
+    <li>
+      <i class="iconfont icon-account"></i>
+      <span>我的</span>
+    </li>
+  </ul>
+</div>
 </template>
 
 <script>
@@ -24,9 +33,31 @@ export default {
 </script>
 
 <style>
-.mu-bottom-nav{
+.bottom-nav{
+  width: 100%;
+  height: 1rem;
+  background-color: #fff;
+  border-top: 1px #a7abad solid;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
   position: fixed;
   bottom: 0;
   left: 0;
+}
+.bottom-nav>li{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+.bottom-nav>li>i{
+  text-align: center;
+  font-size: .36rem;
+  color: #929292;
+  margin: .2rem 0 .1rem 0;;
+}
+.bottom-nav>li>span{
+  font-size: .20rem;
+  color: #929292;
 }
 </style>
