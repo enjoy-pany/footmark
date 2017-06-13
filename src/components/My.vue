@@ -63,7 +63,7 @@ export default {
     return {
       userInfo:{
       	name: 'Pany',
-      	avatar: require('../assets/defaultAva.jpg'),
+      	avatar: require('../../static/assets/defaultAva.jpg'),
       	desc: 'wish sunshine everyday',
       }
     }
@@ -85,7 +85,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background: #00bcd4;
+	background: #00bcd4 url('../../static/assets/defaultBg.jpg') no-repeat center;
 	margin-bottom: .3rem;
 	color: #fff;
 	font-size: .24rem;

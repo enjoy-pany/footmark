@@ -38,23 +38,15 @@ export default {
   data () {
     return {
       msg: true,
-      list: [{
-        coverImg: require('../assets/010.jpg'),
-        title: '雾灵山游记',
-        content: '山泉人家，源自山泉。地处雾灵湖畔、雾灵山中，清新经营逾十年，只为分享给你清新的空气，纯净的泉水，秀丽的山色美景。',
-        position: '北京市密云雾灵西峰风景区',
-        date: '2017.06.08',
-        isHeader: true
-      },
-      {
-        coverImg: require('../assets/011.jpg'),
-        title: '十渡之旅',
-        content: '十渡风景区位于北京市房山区西南，是中国北方唯一一处大规模喀斯特岩溶地貌。房山世界地质公园共有八个园区，其中十渡为八个园区的核心园区——十渡园区。',
-        position: '北京市房山区西南十渡风景区',
-        date: '2017.05.10',
-        isHeader: false
-      }]
+      list: []
     }
+  },
+  mounted: function(){
+    this.$http.get('../../../static/mock/trace.json').then(res => {
+        this.list = res.data;
+    }, res => {
+        console.log(res)
+    })
   }
 }
 </script>

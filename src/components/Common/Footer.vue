@@ -8,7 +8,7 @@
       </router-link>
     </li>
     <li>
-      <router-link :to="{path: '/scape'}">
+      <router-link :to="{path: '/scape/new'}">
         <i class="iconfont icon-qrcode"></i>
         <span>风景</span>
       </router-link>
@@ -27,13 +27,11 @@
 export default {
   data () {
     return {
-      bottomNav: 'trace'
+      
     }
   },
   methods: {
-    handleChange (val) {
-      this.bottomNav = val
-    }
+    
   }
 }
 </script>
@@ -51,6 +49,9 @@ export default {
   bottom: 0;
   left: 0;
 }
+.bottom-nav>li{
+  width: 30%;
+}
 .bottom-nav>li>a{
   display: flex;
   align-content: center;
@@ -65,5 +66,12 @@ export default {
 .bottom-nav>li span{
   font-size: .20rem;
   color: #929292;
+  text-align: center;
+}
+.router-link-active i{
+  color: #31a067!important;
+}
+.router-link-active span{
+  color: #31a067!important;
 }
 </style>

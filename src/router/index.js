@@ -4,42 +4,62 @@ import Router from 'vue-router'
 import Trace from '@/components/Trace'
 import Scape from '@/components/Scape'
 import My from '@/components/My'
-import Register from '@/components/Register'
+// import Register from '@/components/Register'
 import Login from '@/components/Login'
 
+import newscape from '../components/Scape/new.vue'
+import hotscape from '../components/Scape/hot.vue'
+import minescape from '../components/Scape/mine.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
       name: 'home',
+      path: '/',
       component: Scape
     },
     {
-      path: '/trace',
       name: 'trace',
+      path: '/trace',
       component: Trace
     },
     {
-      path: '/scape',
       name: 'scape',
-      component: Scape
+      path: '/scape',
+      component: Scape,
+      children: [
+          {
+              name: 'new',
+              path: 'new',
+              component: newscape,
+          },
+          {
+              name: 'hot',
+              path: 'hot',
+              component: hotscape,
+          },
+          {
+              name: 'mine',
+              path: 'mine',
+              component: minescape,
+          }
+      ]
     },
     {
-      path: '/my',
       name: 'my',
+      path: '/my',
       component: My
     },
     {
-      path: '/register',
       name: 'register',
-      component: Register
+      path: '/register',
+      component: Login
     },
     {
-      path: '/login',
       name: 'login',
+      path: '/login',
       component: Login
     }
   ]
