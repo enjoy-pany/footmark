@@ -7,7 +7,7 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 
-Vue.use(axios)
+//Vue.use(axios)
 Vue.prototype.$http = axios
 
 /* eslint-disable no-new */

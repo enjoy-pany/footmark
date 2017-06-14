@@ -12,13 +12,13 @@
     </div>
   </div>
   <div class="mainCon">
-    <div class="cus-cardList" v-for="item in list">
+    <div class="cus-cardList" v-for="item in list" @click="goDetail($event)">
       <div class="cusDateBar" v-bind:class="{barHeader:item.isHeader}">
         <div class="date-icon"><em v-if="item.isHeader"></em></div>
         <div class="date-num" v-if="item.isHeader">{{item.date}}</div>
       </div>
       <div class="cus-card" v-bind:style="{backgroundImage: 'url('+item.coverImg+')'}">
-        <div class="card-text">
+        <div class="card-text" :id='item.id'>
           <div class="card-text-title">{{item.title}}</div>
           <div class="card-text-content">{{item.content}}</div>
         </div>
@@ -39,6 +39,14 @@ export default {
     return {
       msg: true,
       list: []
+    }
+  },
+  methods: {
+    goDetail: function(eve){
+      let _id = eve.target.id;
+      if(_id){
+        this.$router.push({path: '/detail?id='+_id})
+      }
     }
   },
   mounted: function(){
@@ -161,6 +169,10 @@ export default {
   bottom: 5%;
   right: 5%;
   font-size: .14rem;
+}
+.card-action i{
+  font-size: .2rem;
+  color: #fff;
 }
 .card-action .postion{
   height: 100%;

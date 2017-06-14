@@ -6,6 +6,7 @@ import Scape from '@/components/Scape'
 import My from '@/components/My'
 // import Register from '@/components/Register'
 import Login from '@/components/Login'
+import Detail from '@/components/Detail'
 
 import newscape from '../components/Scape/new.vue'
 import hotscape from '../components/Scape/hot.vue'
@@ -18,7 +19,7 @@ export default new Router({
     {
       name: 'home',
       path: '/',
-      component: Scape
+      component: Login
     },
     {
       name: 'trace',
@@ -61,6 +62,11 @@ export default new Router({
       name: 'login',
       path: '/login',
       component: Login
+    },
+    {
+      name: 'detail',
+      path: '/detail',
+      component: Detail
     }
   ]
 })

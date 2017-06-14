@@ -67,7 +67,7 @@ export default {
   background-color: #fff!important;
   color: #2e9e64!important;
 }
-.nav-list li:last-child{
+.nav-list a:last-child{
   border-right: none;
 }
 .icon{

@@ -108,7 +108,7 @@ export default {
 }
 .card-text{
   width: 100%;
-  font-size: .09rem;
+  font-size: .18rem;
   padding: 0.3rem .2rem;
   box-sizing: border-box;
 }

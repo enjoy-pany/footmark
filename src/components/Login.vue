@@ -19,7 +19,7 @@
 	  	</form>
   	</div>
   	<div class="action" v-if='isLog'>
-  		<p>注册账号</p>
+  		<p @click="goReg">注册账号</p>
   		<p>忘记密码</p>
   	</div>
   	<div class="readMe" v-if='isReg'>
@@ -32,14 +32,21 @@
 export default {
   data () {
     return {
-      isLog: false,
-      isReg: true,
+      isLog: true,
+      isReg: false,
       form: {
       	email: '',
       	user: '',
       	password: ''
       }
     }
+  },
+  methods: {
+  	goReg: function(){
+  		this.$router.push({path: '/register'})
+  		this.isLog = false
+  		this.isReg = true
+  	}
   },
   mounted: function(){
   	let hash = window.location.hash;
