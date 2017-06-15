@@ -6,23 +6,30 @@
       <router-link :to="{path: '/scape/hot'}"><li>最热</li></router-link>
       <router-link :to="{path: '/scape/mine'}"><li>我的</li></router-link>
     </ul>
-    <i class="icon iconfont icon-information"></i>
+    <i class="icon iconfont icon-information" @click="showDialog"></i>
   </div>
   <router-view></router-view>
+  <dialogMain></dialogMain>
 </div>
 
 </template>
 
 <script>
+import dialogMain from './Common/Dialog.vue';
 export default {
   data () {
     return {
-      
+
     }
   },
   methods: {
-    
-  }
+    showDialog (){
+      this.$store.commit('toggleDialog',true);
+    }
+  },
+  components: {
+    dialogMain
+  },
 }
 </script>
 
@@ -40,6 +47,7 @@ export default {
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+  /*background: rgba(0,0,0,0.4);*/
 }
 .nav-list{
   width: 3.2rem;

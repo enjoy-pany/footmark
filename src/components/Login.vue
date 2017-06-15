@@ -5,16 +5,16 @@
   	<div class="name">旅途</div>
   	<div class="logform" v-if='isLog'>
 	  	<form>
-	  		<input class='email' type="email" placeholder="输入账号邮箱" :value='form.email'>
-	  		<input class='password' type="password" placeholder="输入密码" :value='form.password'>
-	  		<button type="button">登录</button>
+	  		<input class='email' type="email" placeholder="输入账号邮箱" v-model:value='form.email'>
+	  		<input class='password' type="password" placeholder="输入密码" v-model:value='form.password'>
+	  		<button type="button" @click="logIn">登录</button>
 	  	</form>
   	</div>
   	<div class="regform" v-if='isReg'>
 	  	<form>
-	  		<input class='email' type="email" placeholder="输入常用邮箱" :value='form.email'>
-	  		<input class='user' type="text" placeholder="输入昵称" :value='form.user'>
-	  		<input class='password' type="password" placeholder="输入密码" :value='form.email'>
+	  		<input class='email' type="email" placeholder="输入常用邮箱" v-model:value='form.email'>
+	  		<input class='user' type="text" placeholder="输入昵称" v-model:value='form.user'>
+	  		<input class='password' type="password" placeholder="输入密码" v-model:value='form.password'>
 	  		<button>注册</button>
 	  	</form>
   	</div>
@@ -35,8 +35,8 @@ export default {
       isLog: true,
       isReg: false,
       form: {
-      	email: '',
       	user: '',
+      	email: '',
       	password: ''
       }
     }
@@ -46,6 +46,23 @@ export default {
   		this.$router.push({path: '/register'})
   		this.isLog = false
   		this.isReg = true
+  	},
+  	logIn: function(){
+  		this.$http.get('../../../static/mock/userInfo.json').then(res => {
+	        if(this.form.email == res.data.email){
+	        	if(this.form.password == res.data.password){
+	        		this.$store.commit('openMessage',{type:'success',content:'登录成功！',isopen:true});
+	        		//this.$message('success','登录成功！')
+	        		this.$router.push({path: './scape/new'})
+	        	}else{
+	        		this.$store.commit('openMessage',{type:'error',content:'密码错误！',isopen:true});
+	        	}
+	        }else{
+	        	alert('用户名不存在！')
+	        }
+	    }, res => {
+	        console.log(res)
+	    })
   	}
   },
   mounted: function(){

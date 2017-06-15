@@ -2,11 +2,13 @@
   <div id="app">
     <router-view></router-view>
     <footerMain></footerMain>
+    <messageMain></messageMain>
   </div>
 </template>
 
 <script>
 import footerMain from './components/common/Footer.vue';
+import messageMain from './components/common/Message.vue';
 let Data = {
     userInfo:{
       userName:'登录',
@@ -16,7 +18,8 @@ let Data = {
 export default {
   name: 'app',
   components: {
-    footerMain
+    footerMain,
+    messageMain
   },
   data: function () {
     return Data;
