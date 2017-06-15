@@ -1,2 +1,2 @@
 # footmark
-# vue2.0+Muse-Ui
+# vue2.0+Vuex+iconfont+rem+vue-router+axios
