@@ -4,7 +4,9 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state:{
+        //dialog组件状态管理
         isOpen: false,
+        //message组件状态管理
         success: false,
         warning: false,
         error: false,

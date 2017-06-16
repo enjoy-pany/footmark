@@ -8,7 +8,9 @@
     </ul>
     <i class="icon iconfont icon-information" @click="showDialog"></i>
   </div>
-  <router-view></router-view>
+  <transition name="slide">
+    <router-view></router-view>
+  </transition>
   <dialogMain></dialogMain>
 </div>
 
@@ -85,4 +87,18 @@ export default {
   top: 30%;
   right: 5%;
 }
+.slide-enter-active{
+  transition: all .5s
+}
+.slide-enter{
+  transform: translateX(-100%);
+  opacity: 0
+}
+/*.slide-leave-active {
+  transition: all .5s
+}
+.slide-leave-active {
+  opacity: 0;
+  transform: translateX(100%);
+}*/
 </style>

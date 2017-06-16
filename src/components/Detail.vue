@@ -1,7 +1,7 @@
 <template>
 <div class="detaMain">
 	<div class="detaHeader">
-		<div class="h-left">
+		<div class="h-left" @click="goBack">
 			<i class="iconfont icon-back"></i>
 		</div>
 		<div class="h-right">
@@ -38,6 +38,11 @@ export default {
     }, res => {
         console.log(res)
     })
+  },
+  methods: {
+  	goBack: function(){
+  		this.$router.push({path: './trace'});
+  	}
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div>
+  <transition name="fade">
     <div class="message" type='success' v-if="isSuc">
       <div class="leftIcon" style="background: rgb(19, 206, 102)"><i class="iconfont icon-smile"></i></div>
       <div class="contet">{{content}}</div>
@@ -12,6 +13,7 @@
       <div class="leftIcon" style="background: rgb(255, 73, 73)"><i class="iconfont icon-cry"></i></div>
       <div class="contet">{{content}}</div>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -44,7 +46,7 @@ export default {
       this.$store.commit('openMessage',{type:'success',content:'登录成功！',isopen:false});
       this.$store.commit('openMessage',{type:'warning',content:'登录成功！',isopen:false});
       this.$store.commit('openMessage',{type:'error',content:'登录成功！',isopen:false});
-    },3000) 
+    },2000) 
   }
 }
 </script>
@@ -81,5 +83,11 @@ export default {
   text-align: left;
   text-indent: 1em;
   line-height: .6rem;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
 }
 </style>

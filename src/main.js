@@ -12,8 +12,8 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
 Vue.prototype.$message = (type,content) => {
-    this.$store.commit('openMessage',{type:type,content:contnet});
-    //console.log(this)
+    console.log(this)
+    //this.$store.commit('openMessage',{type:type,content:contnet});
 }
 
 /* eslint-disable no-new */

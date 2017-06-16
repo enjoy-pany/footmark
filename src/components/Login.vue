@@ -1,6 +1,6 @@
 <template>
   <div class="mainCon">
-  	<div class="icon"><i class="iconfont icon-close"></i></div>
+  	<div class="icon" @click="goLog" v-if="isReg"><i class="iconfont icon-close"></i></div>
   	<div class="logo"><img src="static/image/logo.png" alt=""></div>
   	<div class="name">旅途</div>
   	<div class="logform" v-if='isLog'>
@@ -47,6 +47,11 @@ export default {
   		this.isLog = false
   		this.isReg = true
   	},
+  	goLog: function(){
+  		this.$router.push({path: '/login'})
+  		this.isLog = true
+  		this.isReg = false
+  	},
   	logIn: function(){
   		this.$http.get('../../../static/mock/userInfo.json').then(res => {
 	        if(this.form.email == res.data.email){
@@ -58,7 +63,7 @@ export default {
 	        		this.$store.commit('openMessage',{type:'error',content:'密码错误！',isopen:true});
 	        	}
 	        }else{
-	        	alert('用户名不存在！')
+	        	this.$store.commit('openMessage',{type:'error',content:'用户名不存在！',isopen:true});
 	        }
 	    }, res => {
 	        console.log(res)
