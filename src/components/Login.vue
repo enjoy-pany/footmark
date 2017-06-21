@@ -84,7 +84,6 @@ export default {
   		this.isReg = true
   	}
 
-  	console.log('2')
   	console.log(this.testListObj.testList)
   },
   computed: {
