@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from 'axios'
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -11,6 +12,7 @@ const store = new Vuex.Store({
         warning: false,
         error: false,
         messContent:'默认提示信息',
+        testList: ''
     },
     mutations:{
         toggleDialog(state,payload){
@@ -19,9 +21,22 @@ const store = new Vuex.Store({
         openMessage(state,payload){
             state[payload.type] = payload.isopen;
             state.messContent = payload.content;
+        },
+        testFn(state,payload){
+            console.log(payload)
+            state.testList = payload;
         }
     },
-    actions:{},
+    actions:{
+        testFnSync(context){
+            axios.get('../../../static/mock/test.json').then(res => {
+              console.log(res.data.testObj)
+              context.commit('testFn',res.data.testObj);
+            }, res => {
+              console.log(res)
+            })
+        }
+    },
     modules:{}
 });
 

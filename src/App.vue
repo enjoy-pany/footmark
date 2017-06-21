@@ -23,6 +23,12 @@ export default {
   },
   data: function () {
     return Data;
+  },
+  created: function(){
+    this.$store.dispatch('testFnSync');
+  },
+  mounted: function(){
+    this.$store.dispatch('testFnSync');
   }
 }
 </script>

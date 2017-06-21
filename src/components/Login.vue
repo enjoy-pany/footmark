@@ -20,7 +20,7 @@
   	</div>
   	<div class="action" v-if='isLog'>
   		<p @click="goReg">注册账号</p>
-  		<p>忘记密码</p>
+  		<p @click="goForget">忘记密码</p>
   	</div>
   	<div class="readMe" v-if='isReg'>
   		注册即同意条款<em>用户条款</em>
@@ -52,6 +52,9 @@ export default {
   		this.isLog = true
   		this.isReg = false
   	},
+  	goForget: function(){
+  		console.log(this.testListObj)
+  	},
   	logIn: function(){
   		this.$http.get('../../../static/mock/userInfo.json').then(res => {
 	        if(this.form.email == res.data.email){
@@ -79,6 +82,16 @@ export default {
   	}else if(_hash == 'register'){
   		this.isLog = false
   		this.isReg = true
+  	}
+
+  	console.log('2')
+  	console.log(this.testListObj.testList)
+  },
+  computed: {
+  	testListObj: function(){
+  		console.log('1')
+  		console.log(this.$store.state)
+  		return this.$store.state
   	}
   }
 }
