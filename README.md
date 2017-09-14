@@ -22,7 +22,7 @@ npm run build
  -
 
 
- ![登录模块图片](./view/1.png =200)
+ ![登录模块图片](./view/1.png)
 
  ![风景模块图片](./view/2.png)
 
