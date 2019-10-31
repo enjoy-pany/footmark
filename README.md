@@ -1,4 +1,6 @@
 footmark
+
+小程序版（mpvue）请移步：https://github.com/enjoy-pany/lvto
 --------
 
 ----------
